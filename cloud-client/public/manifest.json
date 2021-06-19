@@ -1,0 +1,10 @@
+{
+  "short_name": "MyCloud",
+  "name": "MyCloud Web Client",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

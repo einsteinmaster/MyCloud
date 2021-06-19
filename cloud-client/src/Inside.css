@@ -1,0 +1,35 @@
+.Inside {
+	display: flex;
+	flex-direction: column;
+}
+
+.MainBox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+	font-size: calc(5px + 1vmin);
+	color: white;
+	min-height: 90vh;
+}
+
+.TopMenu {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}
+
+.UploadButton {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.LogoutButton {
+	margin-right: 30px;
+	margin-top: 10px;
+}
+
+.Spacer {
+	width: calc(100% - 300px);
+}
