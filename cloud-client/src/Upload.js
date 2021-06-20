@@ -1,5 +1,5 @@
 import React from 'react'
-import './Upload.css';
+import './App.css';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 
@@ -49,31 +49,33 @@ const Upload = ({ onBack }) => {
 			<div className="TopMenu">
 				<div className="Spacer">
 				</div>
-				<div className="BackButton">
+				<div className="MenuButtonRight">
 					<button type="button" onClick={onBack}>Back</button>
 				</div>
 			</div>
 			<div className="MainBox">
-				<p>
-					File to upload:
-				</p>
-				{isFilePicked ? (
-					<div>
-						<p>Filename: {selectedFile.name}</p>
-						<p>Filetype: {selectedFile.type}</p>
-						<p>Size in bytes: {selectedFile.size}</p>
-						<p>
-							lastModifiedDate:{' '}
-							{selectedFile.lastModifiedDate.toLocaleDateString()}
-						</p>
-					</div>
-				) : (
-					<p>Select a file to show details</p>
-				)}
-				<br />
-				<input type="file" name="file" onChange={changeHandler} /><br />
-				<br />
-				<input type="button" value="Upload" onClick={onUpload} />
+				<div className="UploadBox">
+					<p>
+						File to upload:
+					</p>
+					{isFilePicked ? (
+						<div>
+							<p>Filename: {selectedFile.name}</p>
+							<p>Filetype: {selectedFile.type}</p>
+							<p>Size in bytes: {selectedFile.size}</p>
+							<p>
+								lastModifiedDate:{' '}
+								{selectedFile.lastModifiedDate.toLocaleDateString()}
+							</p>
+						</div>
+					) : (
+						<p>Select a file to show details</p>
+					)}
+					<br />
+					<input type="file" name="file" onChange={changeHandler} /><br />
+					<br />
+					<input type="button" value="Upload" onClick={onUpload} />
+				</div>
 			</div>
 		</div>
 	);

@@ -6,3 +6,34 @@
   flex-direction: column;
   color: white;
 }
+
+.MainBox {
+	background-color: #282c34;
+	min-height: 90vh;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: center;
+	font-size: calc(5px + 1vmin);
+}
+
+.MenuButtonLeft{
+  margin-left: 10px;
+	margin-top: 10px;
+}
+
+.MenuButtonRight{
+  margin-right: 10px;
+	margin-top: 10px;
+}
+
+.TopMenu {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}
+
+.Spacer {
+	width: calc(100% - 100px);
+}

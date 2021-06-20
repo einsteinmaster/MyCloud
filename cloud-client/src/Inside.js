@@ -1,5 +1,5 @@
 import React , {useState,useEffect} from 'react'
-import './Inside.css';
+import './App.css';
 import { useTable } from 'react-table';
 import Cookies from 'js-cookie';
 
@@ -59,12 +59,12 @@ const Inside = ({ onLogout, onUpload}) => {
 	return (
 		<div className="Inside">
 			<div className="TopMenu">
-				<div className="UploadButton">
+				<div className="MenuButtonLeft">
 					<button onClick={onUpload}>Upload</button>
 				</div>
 				<div className="Spacer">
 				</div>
-				<div className="LogoutButton">
+				<div className="MenuButtonRight">
 					<button type="button" onClick={onLogout}>Logout</button>
 				</div>
 			</div>

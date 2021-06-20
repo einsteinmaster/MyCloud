@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import React, {useState} from 'react'
-import './Login.css'
+import './App.css'
 import base64 from 'base-64';
 
 const Login = ({ onBack , onLoginOk}) => {
@@ -40,11 +40,11 @@ const Login = ({ onBack , onLoginOk}) => {
 			<div className="TopMenu">
 				<div className="Spacer">
 				</div>
-				<div className="BackButton">
+				<div className="MenuButtonRight">
 					<button type="button" onClick={onBack}>Back</button>
 				</div>
 			</div>
-			<div className="LoginBox">
+			<div className="MainBox">
 				<div className="Username">
 					<label className="CodeInputLabel">Username:</label>
 					<input value={username} type="text" className="CodeInput" onChange={(e)=>setUsername(e.target.value)}></input>
