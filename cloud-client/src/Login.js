@@ -13,6 +13,8 @@ const Login = ({ onBack , onLoginOk}) => {
 		let headers = new Headers();
 
 		headers.set('Authorization', 'Basic ' + hash);
+		headers.append('pragma', 'no-cache');
+		headers.append('cache-control', 'no-cache');
 
 		fetch(
 			'/upload/test.txt',
