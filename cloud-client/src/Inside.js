@@ -1,10 +1,10 @@
-import React , {useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import { useTable } from 'react-table';
 import Cookies from 'js-cookie';
 
-const Inside = ({ onLogout, onUpload}) => {
-	const [data,setData] = useState([]);
+const Inside = ({ onLogout, onUpload }) => {
+	const [data, setData] = useState([]);
 
 	const loadData = () => {
 		let headers = new Headers();
@@ -21,11 +21,11 @@ const Inside = ({ onLogout, onUpload}) => {
 			.then(result => result.json())
 			.then((result) => {
 				setData(
-					result.filter(i => 
-						!i.name.endsWith(".php") && 
+					result.filter(i =>
+						!i.name.endsWith(".php") &&
 						!i.name.startsWith(".") &&
 						i.name !== "test.txt"
-						).map((e) => {name: e.name; code: e.code; action: e.name }));
+					).map((e) => {return {...e,action: e.name}}));
 			})
 			.catch((error) => {
 				console.error('Error:', error);
@@ -35,7 +35,7 @@ const Inside = ({ onLogout, onUpload}) => {
 	useEffect(() => {
 		loadData();
 		return () => {
-			
+
 		}
 	}, [])
 
@@ -47,7 +47,7 @@ const Inside = ({ onLogout, onUpload}) => {
 		headers.set('Authorization', 'Basic ' + Cookies.get('cookie'));
 
 		fetch(
-			'/upload/deleteFile.php?name='+filename,
+			'/upload/deleteFile.php?name=' + filename,
 			{
 				method: 'GET',
 				headers: headers
@@ -70,16 +70,16 @@ const Inside = ({ onLogout, onUpload}) => {
 			{
 				Header: 'Access Code',
 				accessor: 'code',
-				Cell: e =><a style={{color: "red"}} href={"/getFileByCode.php?code="+e.value}> {e.value} </a>
+				Cell: e => <a style={{ color: "red" }} href={"/getFileByCode.php?code=" + e.value}> {e.value} </a>
 			},
 			{
 				Header: 'Actions',
 				accessor: 'action',
-				Cell: e => <input type="button" value="Delete" onClick={onDelete(e.value)}/>
+				Cell: e => <input type="button" value="Delete" onClick={onDelete(e.value)} />
 			},
 		],
 		[]
-	)	
+	)
 
 	const {
 		getTableProps,
