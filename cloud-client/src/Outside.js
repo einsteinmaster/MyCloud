@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 
-const OutsideView = ({ onLogin }) => {
+const Outside = ({ onLogin }) => {
 	const [code, setCode] = useState("");
 
 	const onEnter = (e) => {
@@ -40,4 +40,4 @@ const OutsideView = ({ onLogin }) => {
 	);
 }
 
-export default OutsideView;
+export default Outside;

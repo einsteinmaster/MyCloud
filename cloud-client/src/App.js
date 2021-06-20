@@ -1,8 +1,7 @@
 import './App.css';
-import './OutsideView';
 import Login from './Login';
 import React, {useState,useEffect} from 'react';
-import OutsideView from './OutsideView';
+import Outside from './Outside';
 import Inside from './Inside';
 import Upload from './Upload';
 import Cookies from 'js-cookie';
@@ -24,7 +23,7 @@ const App = () => {
 		switch (view) {
 			default:
 			case "outside":
-				return <OutsideView onLogin={()=>setView("login")}/>
+				return <Outside onLogin={()=>setView("login")}/>
 			case "login":
 				return <Login onBack={()=>setView("outside")} onLoginOk={()=>setView("inside")}/>
 			case "inside":

@@ -34,6 +34,28 @@ const Inside = ({ onLogout, onUpload}) => {
 		}
 	}, [])
 
+	const onDelete = (e) => {
+		let filename = "test.txt";
+
+		let headers = new Headers();
+
+		headers.set('Authorization', 'Basic ' + Cookies.get('cookie'));
+
+		fetch(
+			'/upload/deleteFile.php?name='+filename,
+			{
+				method: 'GET',
+				headers: headers
+			}
+		)
+			.then((result) => {
+				loadData();
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	}
+
 	const columns = React.useMemo(
 		() => [
 			{
@@ -43,6 +65,12 @@ const Inside = ({ onLogout, onUpload}) => {
 			{
 				Header: 'Access Code',
 				accessor: 'code',
+				Cell: e =><a style={{color: "red"}} href={"/getFileByCode.php?code="+e.value}> {e.value} </a>
+			},
+			{
+				Header: 'Actions',
+				accessor: 'action',
+				Cell: e => <input type="button" value="Delete" onClick={onDelete}/>
 			},
 		],
 		[]
