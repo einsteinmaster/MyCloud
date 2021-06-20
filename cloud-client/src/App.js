@@ -36,6 +36,27 @@ const App = () => {
 	return (
 		<div className="App" >
 			{renderView()}
+			<div className="InfoBox">
+				<p>
+					Carlos Alvarez Fritz <br/>
+					CEO
+				</p>
+				<p>
+					ALVAREZ CAPITAL PARTNERS S.a.r.l <br/>
+					19 Rue de Bitbourg <br/>
+					L-1273 Luxemburg
+				</p>
+				<p>
+					Registre de Commerce et des Société Nr. B 157.978 <br/>
+					Luxembourg
+				</p>
+				<p>
+					Contact: <br/>
+					<br/>
+					Email: 
+					alvarez.capital.partners(at)email.de
+				</p>
+			</div>
 		</div>
 	);
 }
