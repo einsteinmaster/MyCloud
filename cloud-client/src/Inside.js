@@ -39,8 +39,8 @@ const Inside = ({ onLogout, onUpload }) => {
 		}
 	}, [])
 
-	const onDelete = (file) => {
-		let filename = file;
+	const onDelete = (e) => {
+		let filename = e.target.value;
 
 		let headers = new Headers();
 
@@ -75,7 +75,7 @@ const Inside = ({ onLogout, onUpload }) => {
 			{
 				Header: 'Actions',
 				accessor: 'action',
-				Cell: e => <input type="button" value="Delete" onClick={onDelete(e.value)} />
+				Cell: e => <input type="button" value="Delete" onClick={onDelete} />
 			},
 		],
 		[]
