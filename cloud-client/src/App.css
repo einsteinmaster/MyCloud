@@ -1,15 +1,14 @@
 .App {
-  text-align: center;
-  background-color: #282c34;
+	text-align: center;
+	background-color: #282c34;
 	min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: white;
+	display: flex;
+	flex-direction: column;
+	color: white;
 }
 
 .MainBox {
-	background-color: #282c34;
-	min-height: 90vh;
+	min-height: 80vh;
 	display: flex;
 	align-items: center;
 	flex-wrap: nowrap;
@@ -18,14 +17,11 @@
 	font-size: calc(5px + 1vmin);
 }
 
-.MenuButtonLeft{
-  margin-left: 10px;
-	margin-top: 10px;
-}
-
-.MenuButtonRight{
-  margin-right: 10px;
-	margin-top: 10px;
+.MenuButton {
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .TopMenu {
@@ -35,5 +31,7 @@
 }
 
 .Spacer {
-	width: calc(100% - 100px);
+	margin-top: 10px;
+	height: 20px;
+	width: calc(100% - 200px);
 }

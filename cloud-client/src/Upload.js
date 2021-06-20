@@ -47,9 +47,11 @@ const Upload = ({ onBack }) => {
 	return (
 		<div className="Upload">
 			<div className="TopMenu">
+				<div className="MenuButton">
+				</div>
 				<div className="Spacer">
 				</div>
-				<div className="MenuButtonRight">
+				<div className="MenuButton">
 					<button type="button" onClick={onBack}>Back</button>
 				</div>
 			</div>

@@ -22,9 +22,11 @@ const OutsideView = ({ onLogin }) => {
 	return (
 		<div className="OutsideView">
 			<div className="TopMenu">
+				<div className="MenuButton">
+				</div>
 				<div className="Spacer">
 				</div>
-				<div className="MenuButtonRight">
+				<div className="MenuButton">
 					<button type="button" onClick={onLogin}>Login</button>
 				</div>
 			</div>

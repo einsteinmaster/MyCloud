@@ -59,12 +59,12 @@ const Inside = ({ onLogout, onUpload}) => {
 	return (
 		<div className="Inside">
 			<div className="TopMenu">
-				<div className="MenuButtonLeft">
+				<div className="MenuButton">
 					<button onClick={onUpload}>Upload</button>
 				</div>
 				<div className="Spacer">
 				</div>
-				<div className="MenuButtonRight">
+				<div className="MenuButton">
 					<button type="button" onClick={onLogout}>Logout</button>
 				</div>
 			</div>
