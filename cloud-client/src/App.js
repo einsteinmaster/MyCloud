@@ -36,15 +36,13 @@ const App = () => {
 	return (
 		<div className="App" >
 			{renderView()}
+			<div className="SpacerBottom">
+
+			</div>
 			<div className="InfoBox">
 				<p>
-					Carlos Alvarez Fritz <br/>
-					CEO
-				</p>
-				<p>
-					ALVAREZ CAPITAL PARTNERS S.a.r.l <br/>
-					19 Rue de Bitbourg <br/>
-					L-1273 Luxemburg
+					<span class='bigger'>ALVAREZ CAPITAL PARTNERS S.a.r.l</span> <br/>
+					<br/>
 				</p>
 				<p>
 					Registre de Commerce et des Société Nr. B 157.978 <br/>
@@ -54,7 +52,7 @@ const App = () => {
 					Contact: <br/>
 					<br/>
 					Email: 
-					alvarez.capital.partners(at)email.de
+					alvarez.capital.partners  (at) email.de
 				</p>
 			</div>
 		</div>

@@ -4,17 +4,23 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	color: white;
+	color: rgb(0, 0, 0);
+	background-image: url("bentley.jpeg");
+	background-size: cover;
+	text-shadow: rgb(255, 255, 255) 0px 0px 10px;
 }
 
+
+
 .MainBox {
-	min-height: 70vh;
+	min-height: 60vh;
 	display: flex;
 	align-items: center;
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: center;
 	font-size: calc(5px + 1vmin);
+	color:rgb(255, 255, 255);
 }
 
 .MenuButton {
@@ -35,3 +41,14 @@
 	height: 20px;
 	width: calc(100% - 200px);
 }
+
+.SpacerBottom {
+	height: 13vh;
+}
+
+.InfoBox{
+	text-align: right;
+	margin-right: 50px;
+}
+
+.bigger { font-size:200%; }
