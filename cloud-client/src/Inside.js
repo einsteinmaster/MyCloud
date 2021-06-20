@@ -20,7 +20,12 @@ const Inside = ({ onLogout, onUpload}) => {
 		)
 			.then(result => result.json())
 			.then((result) => {
-				setData(result.filter(i => !i.name.endsWith(".php") && i.name !== "." && i.name !== ".." && !i.name.startsWith(".")));
+				setData(
+					result.filter(i => 
+						!i.name.endsWith(".php") && 
+						!i.name.startsWith(".") &&
+						i.name !== "test.txt"
+						).map((e) => {name: e.name; code: e.code; action: e.name }));
 			})
 			.catch((error) => {
 				console.error('Error:', error);
@@ -34,8 +39,8 @@ const Inside = ({ onLogout, onUpload}) => {
 		}
 	}, [])
 
-	const onDelete = (e) => {
-		let filename = "test.txt";
+	const onDelete = (file) => {
+		let filename = file;
 
 		let headers = new Headers();
 
@@ -70,7 +75,7 @@ const Inside = ({ onLogout, onUpload}) => {
 			{
 				Header: 'Actions',
 				accessor: 'action',
-				Cell: e => <input type="button" value="Delete" onClick={onDelete}/>
+				Cell: e => <input type="button" value="Delete" onClick={onDelete(e.value)}/>
 			},
 		],
 		[]
