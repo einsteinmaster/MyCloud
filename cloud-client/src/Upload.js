@@ -26,7 +26,7 @@ const Upload = ({ onBack }) => {
 			}
 		)
 			.then((result) => {
-				if (result.code === 200) {
+				if (result.status === 200) {
 					console.log('Success:', result);
 					onBack();
 				} else {

@@ -1,14 +1,13 @@
 import Cookies from 'js-cookie';
-import React from 'react'
+import React, {useState} from 'react'
 import './Login.css'
 import base64 from 'base-64';
 
 const Login = ({ onBack , onLoginOk}) => {
-	let userRef = React.useRef(null);
-	let pwRef = React.useRef(null);
+	const [username,setUsername] = useState("");
+	const [password,setPassword] = useState("");
+
 	const onLogin = () => {
-		const username = userRef.current.value;
-		const password = pwRef.current.value;
 		let hash = base64.encode(username + ":" + password)
 
 		let headers = new Headers();
@@ -46,11 +45,11 @@ const Login = ({ onBack , onLoginOk}) => {
 			<div className="LoginBox">
 				<div className="Username">
 					<label className="CodeInputLabel">Username:</label>
-					<input ref={userRef} type="text" className="CodeInput"></input>
+					<input value={username} type="text" className="CodeInput" onChange={(e)=>setUsername(e.target.value)}></input>
 				</div>
 				<div className="Password">
 					<label className="CodeInputLabel">Password: </label>
-					<input ref={pwRef} type="text" className="CodeInput"></input>
+					<input value={password} type="password" className="CodeInput" onChange={(e)=>setPassword(e.target.value)}></input>
 				</div>
 				<button className="LoginButton" onClick={onLogin}>Ok</button>
 			</div>

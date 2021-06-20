@@ -6,8 +6,12 @@ const OutsideView = ({ onLogin }) => {
 
 	const onEnter = (e) => {
 		if (e.keyCode === 13) {
-			openInNewTab('/upload/getFileByCode.php?code='+code);
+			openInNewTab('/getFileByCode.php?code='+code);
 		}
+	}
+
+	const onTextChange = (e) => {
+		setCode(e.target.value);
 	}
 
 	const openInNewTab = (url) => {
@@ -26,7 +30,7 @@ const OutsideView = ({ onLogin }) => {
 			</div>
 			<div className="CodeBox">
 				<label className="CodeInputLabel">Access Code:</label>
-				<input type="text" value={code} className="CodeInput" onKeyDown={onEnter} onChange={(e)=>setCode(e.value)}></input>
+				<input type="text" value={code} className="CodeInput" onKeyDown={onEnter} onChange={onTextChange}></input>
 			</div>
 		</div>
 	);

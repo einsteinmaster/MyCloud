@@ -1,24 +1,44 @@
-import React from 'react'
+import React , {useState,useEffect} from 'react'
 import './Inside.css';
-import { useTable } from 'react-table'
+import { useTable } from 'react-table';
+import Cookies from 'js-cookie';
 
 const Inside = ({ onLogout, onUpload}) => {
+	const [data,setData] = useState([]);
 
-	const data = React.useMemo(
-		() => [
+	const loadData = () => {
+		let headers = new Headers();
+
+		headers.set('Authorization', 'Basic ' + Cookies.get('cookie'));
+
+		fetch(
+			'/upload/getFileList.php',
 			{
-				file: 'Hello',
-				code: 'World',
+				method: 'GET',
+				headers: headers
 			}
-		],
-		[]
-	)
+		)
+			.then(result => result.json())
+			.then((result) => {
+				setData(result.filter(i => !i.name.endsWith(".php") && i.name !== "." && i.name !== ".." && !i.name.startsWith(".")));
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	}
+
+	useEffect(() => {
+		loadData();
+		return () => {
+			
+		}
+	}, [])
 
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Datei',
-				accessor: 'file', // accessor is the "key" in the data
+				accessor: 'name',
 			},
 			{
 				Header: 'Access Code',
@@ -26,7 +46,7 @@ const Inside = ({ onLogout, onUpload}) => {
 			},
 		],
 		[]
-	)
+	)	
 
 	const {
 		getTableProps,

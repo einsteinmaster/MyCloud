@@ -11,7 +11,7 @@ const App = () => {
 	const [view, setView] = useState("outside");
 
 	useEffect(() => {
-		if(Cookies.get('cookie') !== null)
+		if(Cookies.get('cookie') !== undefined)
 		{
 			setView("inside");
 		}
