@@ -75,7 +75,7 @@ const Inside = ({ onLogout, onUpload }) => {
 			{
 				Header: 'Actions',
 				accessor: 'action',
-				Cell: e => <input type="button" value="Delete" onClick={onDelete} />
+				Cell: e => <input type="button" value="Delete" onClick={()=>onDelete(e.value)} />
 			},
 		],
 		[]
