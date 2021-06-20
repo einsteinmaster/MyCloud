@@ -6,4 +6,4 @@
 
 For update:
 
-`git pull && cd cloud-client && npm run-script build && cd .. && docker kill $(docker ps -q) && cp -r cloud-client/build/ server/ && cd server && sudo docker build -t webserver . && sudo docker run -p 80:80 -d webserver && cd ..`
+`git pull && cd cloud-client && npm run-script build && cd .. && sudo docker kill $(sudo docker ps -q) && cp -r cloud-client/build/ server/ && cd server && sudo docker build -t webserver . && sudo docker run -p 80:80 -d webserver && cd ..`
