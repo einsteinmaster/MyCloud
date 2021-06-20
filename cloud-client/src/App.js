@@ -1,12 +1,24 @@
 import './App.css';
 import './OutsideView';
 import Login from './Login';
-import {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import OutsideView from './OutsideView';
 import Inside from './Inside';
+import Upload from './Upload';
+import Cookies from 'js-cookie';
 
 const App = () => {
 	const [view, setView] = useState("outside");
+
+	useEffect(() => {
+		if(Cookies.get('cookie') !== null)
+		{
+			setView("inside");
+		}
+		return () => {
+			
+		}
+	}, [])
 
 	const renderView = () => {
 		switch (view) {
@@ -16,7 +28,9 @@ const App = () => {
 			case "login":
 				return <Login onBack={()=>setView("outside")} onLoginOk={()=>setView("inside")}/>
 			case "inside":
-				return <Inside onLogout={()=>setView("outside")}/>
+				return <Inside onLogout={()=>setView("outside")} onUpload={()=>setView("upload")}/>
+			case "upload":
+				return <Upload onBack={()=>setView("inside")}/>
 		}
 	}
 

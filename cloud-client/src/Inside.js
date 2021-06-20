@@ -2,7 +2,7 @@ import React from 'react'
 import './Inside.css';
 import { useTable } from 'react-table'
 
-const Inside = ({onLogout}) => {
+const Inside = ({ onLogout, onUpload}) => {
 
 	const data = React.useMemo(
 		() => [
@@ -35,11 +35,6 @@ const Inside = ({onLogout}) => {
 		rows,
 		prepareRow,
 	} = useTable({ columns, data })
-
-
-	const onUpload = () => {
-		console.log("upload");
-	}
 
 	return (
 		<div className="Inside">

@@ -5,7 +5,7 @@ const OutsideView = ({ onLogin }) => {
 
 	const onEnter = (e) => {
 		if (e.keyCode === 13) {
-			openInNewTab('https://stackoverflow.com')
+			openInNewTab('/upload/test.txt')
 		}
 	}
 

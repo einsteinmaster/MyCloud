@@ -1,0 +1,81 @@
+import React from 'react'
+import './Upload.css';
+import { useRef } from 'react';
+import Cookies from 'js-cookie';
+
+const Upload = ({ onBack }) => {
+
+	const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+
+	const onUpload = () => {
+		const formData = new FormData();
+
+		formData.append('file', selectedFile);
+
+		let headers = new Headers();
+
+		headers.set('Authorization', 'Basic ' + Cookies.get('cookie'));
+
+		fetch(
+			'/upload/upload.php',
+			{
+				method: 'POST',
+				headers: headers,
+				body: formData,
+			}
+		)
+			.then((result) => {
+				if (result.code === 200) {
+					console.log('Success:', result);
+				} else {
+					console.error('Error result: ' + result)
+				}
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
+	const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		setIsFilePicked(true);
+	};
+
+
+	return (
+		<div className="Upload">
+			<div className="TopMenu">
+				<div className="Spacer">
+				</div>
+				<div className="BackButton">
+					<button type="button" onClick={onBack}>Back</button>
+				</div>
+			</div>
+			<div className="MainBox">
+				<p>
+					File to upload:
+				</p>
+				{isSelected ? (
+					<div>
+						<p>Filename: {selectedFile.name}</p>
+						<p>Filetype: {selectedFile.type}</p>
+						<p>Size in bytes: {selectedFile.size}</p>
+						<p>
+							lastModifiedDate:{' '}
+							{selectedFile.lastModifiedDate.toLocaleDateString()}
+						</p>
+					</div>
+				) : (
+					<p>Select a file to show details</p>
+				)}
+				<br />
+				<input ref={fileInput} type="file" name="file" onChange={changeHandler} /><br />
+				<br />
+				<input type="button" value="Upload" onClick={onUpload} />
+			</div>
+		</div>
+	);
+}
+
+export default Upload;
