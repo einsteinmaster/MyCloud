@@ -1,6 +1,6 @@
 import React from 'react'
 import './Upload.css';
-import { useRef } from 'react';
+import { useState } from 'react';
 import Cookies from 'js-cookie';
 
 const Upload = ({ onBack }) => {
@@ -28,6 +28,7 @@ const Upload = ({ onBack }) => {
 			.then((result) => {
 				if (result.code === 200) {
 					console.log('Success:', result);
+					onBack();
 				} else {
 					console.error('Error result: ' + result)
 				}
@@ -56,7 +57,7 @@ const Upload = ({ onBack }) => {
 				<p>
 					File to upload:
 				</p>
-				{isSelected ? (
+				{isFilePicked ? (
 					<div>
 						<p>Filename: {selectedFile.name}</p>
 						<p>Filetype: {selectedFile.type}</p>
@@ -70,7 +71,7 @@ const Upload = ({ onBack }) => {
 					<p>Select a file to show details</p>
 				)}
 				<br />
-				<input ref={fileInput} type="file" name="file" onChange={changeHandler} /><br />
+				<input type="file" name="file" onChange={changeHandler} /><br />
 				<br />
 				<input type="button" value="Upload" onClick={onUpload} />
 			</div>

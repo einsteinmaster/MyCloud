@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './OutsideView.css';
 
 const OutsideView = ({ onLogin }) => {
+	const [code,setCode] = useState("");
 
 	const onEnter = (e) => {
 		if (e.keyCode === 13) {
-			openInNewTab('/upload/test.txt')
+			openInNewTab('/upload/getFileByCode.php?code='+code);
 		}
 	}
 
@@ -25,7 +26,7 @@ const OutsideView = ({ onLogin }) => {
 			</div>
 			<div className="CodeBox">
 				<label className="CodeInputLabel">Access Code:</label>
-				<input type="text" className="CodeInput" onKeyDown={onEnter}></input>
+				<input type="text" value={code} className="CodeInput" onKeyDown={onEnter} onChange={(e)=>setCode(e.value)}></input>
 			</div>
 		</div>
 	);
